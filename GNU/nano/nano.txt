@@ -1,0 +1,323 @@
+
+
+Jaboatão dos Guararapes, PE, 26 de dezembro de 2015.
+Atualização mais recente: domingo, 19 de maio de 2024.
+
+
+====================
+====================
+
+
+Assunto: GNU nano
+
+
+====================
+====================
+
+
+Invocar o editor estabelencendo a quebra automática de linha em dez 
+caracteres:
+
+$ nano --fill=10 /tmp/teste.txt
+
+
+Obs.: no ambiente Debian GNU/Linux 8 (Jessy), ao examinar-se o arquivo 
+</etc/nanorc> original (conforme instalado pela distribuição e sem 
+qualquer personalização), constata-se (linha 94) que a funcionalidade de 
+quebra automática de linha foi _desabilitada_ (set nowrap).   Em tal 
+Sistema Operacional, portanto, apenas via linha de comando é que se 
+consegue o efeito da quebra automática de linhas (sem alterar o 
+arquivo de configuração evidentemente).
+
+
+====================
+====================
+
+
+
+Saída do comando </usr/bin/nano --version>, executado no ambiente Debian 
+GNU/Linux 8 (Jessy):
+
+
+GNU nano versão 2.2.6 (compilado 16:56:37, Jul 16 2014)
+ (C) 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007,
+ 2008, 2009 Free Software Foundation, Inc.
+ Email: nano@nano-editor.org	Web: http://www.nano-editor.org/
+ Opções de compilação: --disable-wrapping-as-root --enable-color --enable-extra --enable-multibuffer --enable-nanorc --enable-utf8
+
+
+====================
+====================
+
+
+
+Saída do comando <nano --fill=72 --poslog bashref-ed.4.3-pt_BR.texi>, 
+executado no ambiente Debian GNU/Linux 8 (Jessy):
+
+
+nano: unrecognized option '--poslog'
+Uso: nano [OPÇÕES] [[+LINHA, COLUNA] ARQUIVO]...
+
+Opção		Opção Longa GNU		Significado
+ -h, -?		--help			Mostrar essa mensagem
+ +LINHA,COLUNA				Começar na linha numero LINHA, coluna COLUNA
+ -A		--smarthome		Habilitar tecla <HOME> inteligente
+ -B		--backup		Salvar cópias reserva de arquivos que existem
+ -E <dir>	--backupdir=<dir>	Diretório para salvar arquivos únicos de reserva
+ -D		--boldtext		Usa negrito ao invés de texto em video inverso
+ -E		--tabstospaces		Converte tabulações digitadas em espaços
+ -F		--multibuffer		Permitir múltiplos buffers de arquivos
+ -H		--historylog		Gravar e ler histórico das strings de busca/substituição
+ -I		--ignorercfiles		Não olhar o arquivo nanorc
+ -K		--rebindkeypad		Corrigir a confusão com o teclado numérico
+ -L		--nonewlines		Não adicionar retorno de carro nos finais das linhas
+ -N		--noconvert		Não converter arquivos do formato DOS/Mac
+ -O		--morespace		Utiliza um ou duas linhas para edição
+ -Q <str>	--quotestr=<str>	Citando strings
+ -R		--restricted		Modo restrito
+ -S		--smooth		Rolar linhas ao invés de meia tela
+ -T <#cols>	--tabsize=<#cols>	Modificar o tamanho da tabulação para #cols
+ -U		--quickblank		Remoção rápida da barra de estado
+ -V		--version		Imprime informação de versão e fecha
+ -W		--wordbounds		Detecção mais precisa dos limites das palavras
+ -Y <str>	--syntax <str>		Definição de sintaxe para inserção de cores
+ -c		--const			Mostrar a posição do cursos constantemente
+ -d		--rebinddelete		Corrige o problema de confusão entre a tecla Backspace/Delete
+ -i		--autoindent		Indentar automaticamente nova linhas
+ -k		--cut			Recortar do cursor até o fim da linha
+ -l		--nofollow		Não seguir atalhos simbólicos, sobrescrever
+ -m		--mouse			Habilitar o uso do mouse
+ -o <dir>	--operatingdir=<dir>	Indicar o diretório de trabalho
+ -p		--preserve		Preservar as teclas XON (^Q) e XOFF (^S)
+ -q		--quiet			Ignorar silenciosamente problemas na inicialização como erros no arquivo rc
+ -r <#colun>	--fill=<#colun>		Modificar o ponto de agrupamento na coluna #cols
+ -s <prog>	--speller=<prog>	Habilitar um verificador ortográfico alternativo
+ -t		--tempfile		Salvar automaticamente ao sair, não perguntar
+ -u		--undo			Permitir desfazer genérico [EXPERIMENTAL]
+ -v		--view			Modo Visualização (somente leitura)
+ -w		--nowrap		Não ajuste linhas compridas
+ -x		--nohelp		Não as duas linhas de ajuda
+ -z		--suspend		Permitir suspenção
+ -$		--softwrap		Habilita ajuste de linhas longas
+ -a, -b, -e,				
+ -f, -g, -j				(ignorado, para compatibilidade com o Pico)
+
+
+====================
+====================
+
+
+
+Saída do comando <nano --fill=72 bashref-ed.4.3-pt_BR.texi>, executado 
+no ambiente Debian GNU/Linux 8 (Jessy):
+
+Erro no /home/jamenson/.nanorc na linha 10: Sinalizador "poslog" desconhecido
+
+Pressione Enter para continuar a inicialização do nano
+
+
+
+====================
+====================
+
+
+
+Saída do comando </usr/bin/nano --version>, executado no ambiente Linux 
+From Scratch 7.6-systemd:
+
+
+GNU nano versão 2.3.6 (compilado 06:28:14, Mar  2 2015)
+ (C) 1999..2014 Free Software Foundation, Inc.
+ Email: nano@nano-editor.org	Web: http://www.nano-editor.org/
+ Opções compiladas: --enable-utf8
+
+
+
+====================
+====================
+
+
+
+Saída do comando </usr/bin/nano --help>, executado no ambiente Linux 
+From Scratch 7.6-systemd:
+
+
+
+Uso: nano [OPÇÕES] [[+LINHA,COLUNA] ARQUIVO]...
+
+Opção		Opção GNU longa		Significado
+ +LINHA,COLUNA				Começa na linha número LINHA, coluna COLUNA
+ -A		--smarthome		Habilita tecla <HOME> inteligente
+ -B		--backup		Salva cópias reserva de arquivos que existem
+ -E <dir>	--backupdir=<dir>	Diretório para salvar arquivos únicos de reserva
+ -D		--boldtext		Usa negrito ao invés de texto em video inverso
+ -E		--tabstospaces		Converte tabulações digitadas em espaços
+ -F		--multibuffer		Permite múltiplos buffers de arquivos
+ -G		--locking		Usa arquivos de travas (estilo vim)
+ -H		--historylog		Grava & lê histórico das strings de pesquisa/substituição
+ -I		--ignorercfiles		Não olha o arquivo nanorc
+ -K		--rebindkeypad		Corrige confusão com o teclado numérico
+ -L		--nonewlines		Não adiciona nova-linha ao final das linhas dos arquivos
+ -N		--noconvert		Não converte arquivos do formato DOS/Mac
+ -O		--morespace		Utiliza um ou mais linhas para edição
+ -P		--poslog		Registra & lê a localização da posição do cursor
+ -Q <str>	--quotestr=<str>	Texto de citação
+ -R		--restricted		Modo restrito
+ -S		--smooth		Rola linhas ao invés de meia tela
+ -T <#cols>	--tabsize=<#cols>	Modifica o tamanho da tabulação para #cols
+ -U		--quickblank		Remoção rápida da barra de status
+ -V		--version		Imprime informação de versão e fecha
+ -W		--wordbounds		Detecção mais precisa dos limites das palavras
+ -Y <str>	--syntax <str>		Definição de sintaxe para inserção de cores
+ -c		--const			Mostra a posição do cursor constantemente
+ -d		--rebinddelete		Corrige confusão entre Backspace/Delete
+ -h		--help			Mostra esse texto de ajuda
+ -i		--autoindent		Avança o recuo automaticamente em nova linhas
+ -k		--cut			Recorta do cursor até o fim da linha
+ -l		--nofollow		Não segue links simbólicos, e sim sobrescreve
+ -m		--mouse			Habilita o uso do mouse
+ -n		--noread		Não lê o arquivo (apenas o escreve)
+ -o <dir>	--operatingdir=<dir>	Define o diretório de trabalho
+ -p		--preserve		Preserva as teclas XON (^Q) e XOFF (^S)
+ -q		--quiet			Ignora silenciosamente problemas como erros no arquivo rc
+ -r <#colun>	--fill=<#colun>		Define o ponto de ajuste rígido na coluna #cols
+ -s <prog>	--speller=<prog>	Habilita um verificador ortográfico alternativo
+ -t		--tempfile		Salva automaticamente ao sair, sem perguntar
+ -v		--view			Modo visualização (somente leitura)
+ -w		--nowrap		Não faz ajuste rígido em linhas compridas
+ -x		--nohelp		Não mostra as duas linhas de ajuda
+ -z		--suspend		Permite suspensão
+ -$		--softwrap		Habilita ajuste suave de linhas compridas
+
+
+
+====================
+====================
+
+
+Abrir o arquivo <bashref-ed.4.3-pt_BR.texi> para edição e posicionar o 
+cursor na linha nº 3312, coluna nº 01
+
+nano +3312 bashref-ed.4.3-pt_BR.texi
+
+
+====================
+====================
+
+
+Incluído em: quinta-feira, 14 de maio de 2020.
+
+Computador: CCE
+Sistema: GNU/Linux From Scratch 9.1 (System V)
+
+Problema: não estava ocorrendo a quebra automática de linhas (--fill).
+
+Solução: incluir a opção "set breaklonglines" no arquivo </etc/nanorc>.
+
+
+ = = = = = = = = = =
+ = = = = = = = = = =
+
+
+Incluído em: segunda-feira, 13 de setembro de 2021.
+
+
+Diferença entre "softwrap" e "breaklonglines"
+
+
+1 - "softwrap" ("quebra flexível de linhas longas") (exibe várias colunas na mesma linha)
+
+Meta + S: ou habilita ou desabilita
+
+"softwrap": se atingir a borda direita da tela, então _aparenta_ ocorrer uma quebra de linha. Só aparenta. O texto continua _na mesma linha_. Contendo ou não espaços em branco, o texto continua _na mesma linha_. Por exemplo, esta linha aqui fica visível toda na tela, mesmo sendo "mais larga" em termos de caracteres. Mesmo escrevendo-se mais que _trezentos caracteres_, ainda assim, o GNU Nano mantém _todo o texto na mesma linha_. Linha bastante longa! Por que alguém desejaria escrever uma linha gigantesca (com mais que trezentos, quinhentos, caracteres!)?
+
+
+2 - "breaklonglines" ("quebra rígida de linhas longas")
+
+Meta + L: ou habilita ou desabilita
+
+
+
+"breaklonglines": se atingir a borda direita da tela, então efetivamente ocorre uma quebra de linha. O texto continua _em outra linha_.
+
+Conclusão um: se for habilitar "breaklonglines", então desabilitar "softwrap". Explicação: não faz sentido a "quebra flexível de linhas longas" quando já se tem a "quebra rígida de linhas longas" habilitada.
+
+Conclusão dois: se for habilitar "softwrap", então habilitar "atblanks".
+
+Conclusão três: se for habilitar "breaklonglines", então definir "fill".
+
+Conclusão quatro: se habilitar "breaklonglines" já dentro de uma sessão do nano, então o "fill" será definido para o padrão (-8) ou o valor que estiver definido no arquivo de controle de execução (nanorc).
+
+Conclusão cinco: concorda-se com a configuração do "fill" sugerida no projeto "Linux From Scratch": (set fill 72).
+
+Conclusão seis: é mais conveniente e oportuno habilitar "breaklonglines" já dentro de uma sessão do nano (com o "fill" já previamente definido no arquivo de controle de execução [nanorc]).
+
+
+GNU nano - Bugs: bug #49959: [Request] do softwrap at word boundaries instead of at screen's edge. Disponível em: <https://savannah.gnu.org/bugs/?49959>. Acesso em: 13 set. 2021.
+
+
+ = = = = = = = = = =
+ = = = = = = = = = =
+
+
+Incluído em: domingo, 19 de maio de 2024.
+
+Dispositivo: computador CCE (comp02)
+Sistema Operacional: Debian GNU/Linux 12 ("bookworm")
+
+
+Saída gerada pelo comando <echo "${COLUMNS}">:
+
+113
+
+
+ = = = = = Transcrição inicia = = = = =
+
+## Set the target width for automatic hard-wrapping and for justifying
+## paragraphs.  If the specified value is 0 or less, the wrapping point
+## will be the terminal's width minus this number.
+#set fill -8
+
+ = = = = = Transcrição termina = = = = =
+
+Fonte: arquivo </etc/nanorc> instalado com a distribuição.
+
+Tradução: Configura a largura alvo para "quebra rígida de linhas longas" 
+e para justificamento de parágrafos. Se o valor especificado for 0 ou 
+menos, o ponto de quebra será a largura do terminal menos esse número.
+
+Saída gerada pelo comando <echo $(( "${COLUMNS}" - 41 ))>:
+
+72
+
+Conclusão: para a distribuição Debian GNU/Linux, deve-se configurar 'set 
+fill' para o valor '-41' para se obter uma "quebra rígida de linhas 
+longas" no caractere de número 72.
+
+
+ = = = = = = = = = =
+ = = = = = = = = = =
+
+
+Incluído em: sexta-feira, 28 de fevereiro de 2025.
+
+
+Problema: como eliminar espaços em branco no início de linhas:
+
+
+Passo um: acessar o recurso de substituir: Ctrl + \
+
+Passo dois: ativar o modo de expressão regular: Esc + R
+
+Passo três: expressão de busca: "^ +"
+
+Passo quatro: expressão de substituição: nada
+
+
+Fonte: Postagem do Misato GNU no grupo "debxp/comunidade" (Telegram). Disponível em: <https://t.me/debxpcomunidade/109650>. Acesso em: 28 fev. 2025.
+
+
+ = = = = = = = = = =
+ = = = = = = = = = =
+
+
