@@ -1,0 +1,315 @@
+
+
+Jaboatão dos Guararapes, PE, 30 de julho de 2014.
+Atualização mais recente: sexta-feira, 28 de fevereiro de 2025.
+
+-------------------------
+-------------------------
+
+Assunto: Substituição de sequência de caracteres com sed:
+
+O problema: atualizar um alias dentro do arquivo .bashrc e, também, no 
+.bash_profile, adicionando o parâmetro [--preserve] ao alias cp (copia 
+arquivos preservando seus atributos, como as marcas de tempo).
+
+
+-------------------------
+-------------------------
+
+O seguinte comando:
+sed -i 's/#\(LOCALE_CHARSET\):FALSE/\1:TRUE/' /etc/lynx/lynx.cfg
+
+Muda isto:
+#LOCALE_CHARSET:FALSE
+
+Para isto:
+LOCALE_CHARSET:TRUE
+
+
+-------------------------
+-------------------------
+
+
+-i, --in-place  -->  edita arquivos no local
+
+
+-------------------------
+-------------------------
+
+O seguinte comando:
+sed -i 's/uid\=jamenson,gid\=jamenson/uid\=jamenson,gid\=users/' /home/jamenson/Documentos/local-remoto-manual-backup.txt
+
+Muda isto:
+uid=jamenson,gid=jamenson
+
+Para isto:
+uid=jamenson,gid=users
+
+
+-------------------------
+-------------------------
+
+
+Comando para retirar o caracter # do começo das linhas de um arquivo (sem alterar o arquivo):
+
+sed '/#/d'
+
+
+-------------------------
+-------------------------
+
+
+Modificando um marcador do GNU Texinfo.  Mudar de "@xref" para "@ref".
+
+sed -i 's/\@xref/\@ref/' teste.txt
+
+Resultado:
+
+
+Veja-se @ref{Redirections}, para uma lista de operadores de 
+expansão de histórico.   Veja-se @ref{Bash History Facilities}, para 
+interativos.   Veja-se @ref{Interactive Shells}, para uma descrição do 
+deveria ser exibida.   Veja-se @ref{Bash Variables} para uma descrição 
+Veja-se @ref{Bash Builtins}, para uma descrição completa acerca do 
+Veja-se @ref{Bourne Shell Builtins}, para a descrição do comando 
+
+
+====================
+====================
+
+
+
+sed -i 's/Basic Shell Features/Características Básicas do Shell/' /home/jamenson/bashref-pt_BR/bashref-ed.4.3-pt_BR.texi 
+
+
+====================
+====================
+
+Deleta o grupo "dummy" de dentro do arquivo </etc/group>
+
+sed -i '/dummy/d' /etc/group
+
+
+ = = = = = = = = = =
+ = = = = = = = = = =
+
+
+Incluído em: quarta-feira, 16 de outubro de 2019.
+
+
+Estes comandos produziram os resultados vistos abaixo:
+
+sed -e '/#DEFAULT_ED/ a DEFAULT_EDITOR:vi'           -i /etc/lynx/lynx.cfg
+sed -e '/#DEFAULT_ED/ a DEFAULT_EDITOR:nano'           -i /etc/lynx/lynx.cfg
+sed -e '/#DEFAULT_ED/ a DEFAULT_EDITOR:nan'           -i /etc/lynx/lynx.cfg
+
+
+.h2 DEFAULT_EDITOR
+# If DEFAULT_EDITOR is defined, users may edit local documents with it
+#DEFAULT_EDITOR:
+DEFAULT_EDITOR:nan
+DEFAULT_EDITOR:nano
+DEFAULT_EDITOR:vi
+# SYSTEM_EDITOR behaves the same as DEFAULT_EDITOR,
+
+
+Este comando produziu o resultado visto abaixo:
+
+sed -e '/#PERSIST/    a PERSISTENT_COOKIES:TRUE'     -i /etc/lynx/lynx.cfg
+
+
+Antes da execução do comando:
+
+# make sure that PERSISTENT_COOKIES is not TRUE or that COOKIE_FILE does
+.h2 PERSISTENT_COOKIES
+# PERSISTENT_COOKIES indicates that cookies should be read at startup from
+# It is not used if Lynx was compiled without USE_PERSISTENT_COOKIES.
+#PERSISTENT_COOKIES:FALSE
+# USE_PERSISTENT_COOKIES and the PERSISTENT_COOKIES option is enabled.
+# stored at exit, if Lynx was compiled with USE_PERSISTENT_COOKIES and the
+# PERSISTENT_COOKIES option is enabled.  The cookie save file can also be
+
+Depois da execução do comando:
+
+# make sure that PERSISTENT_COOKIES is not TRUE or that COOKIE_FILE does
+.h2 PERSISTENT_COOKIES
+# PERSISTENT_COOKIES indicates that cookies should be read at startup from
+# It is not used if Lynx was compiled without USE_PERSISTENT_COOKIES.
+#PERSISTENT_COOKIES:FALSE
+PERSISTENT_COOKIES:TRUE
+# USE_PERSISTENT_COOKIES and the PERSISTENT_COOKIES option is enabled.
+# stored at exit, if Lynx was compiled with USE_PERSISTENT_COOKIES and the
+# PERSISTENT_COOKIES option is enabled.  The cookie save file can also be
+
+Observação: o editor "sed" acrescentou (parâmetro "a") após a expressão de busca.
+
+
+ = = = = = = = = = =
+ = = = = = = = = = =
+
+
+Incluído em: terça-feira, 22 de outubro de 2019.
+
+
+$ sed "s/^.* e //" <<< "Vou jogar fora o início e vou deixar só o que interessa"
+
+Significado: substituir (letra "s") a partir do início (circunflexo) da 
+frase até que (.*) apareça a sequência "espaço seguido da letra "e" 
+seguida de espaço" ( e ). Quando encontrar a dita sequência, substitua 
+por nada (note que entre a segunda e a terceira barra "/" não tem nada).
+
+Fonte: Júlio Cézar Neves. Programação Shell Linux - Redirecionamentos 
+(quase) desconhecidos. Acessível em: 
+<https://www.youtube.com/watch?v=9QREswiFjFU?t=926>.
+
+
+ = = = = = = = = = =
+ = = = = = = = = = =
+
+
+Incluído: sábado, 30 de novembro de 2019.
+
+
+Tenho um arquivo.txt com o seguinte texto: (exemplo)
+alavno@gmail.com:minhaSenha
+kaflh@gmail.com.br:minhaSen21hadasa
+acat@gmail.com.eu:minheweqwaSenhddaa
+tyson@gmail.com.nl:xadaeeminhaSenha
+mike@gmail.com.jn:minhd231231aSe1nha
+
+O que preciso?
+Que a saída seja:
+email + dois pontos ( : ) + dois primeiros caracteres da senha + o resto dos caracteres substituídos por asterisco.
+
+alano@gmail.com:mi********
+nhaSenha = 8 caracteres, 8 asteriscos
+
+
+ = = = = = = = = = =
+ = = = = = = = = = =
+
+
+Saída do comando <sed -r ':a;s/(.*:...*)[^*]/\1*/;ta' <<<'alavno@gmail.com:minhaSenha'>:
+
+alavno@gmail.com:mi********
+
+
+sed -r ":a;s/(.*?:...*)[^*]/\1*/;ta" arquivoComEmailSenha.txt
+
+
+Para quem quiser entender...
+
+:a = Cria um label chamado "a";
+s = wildcard de substituição;
+
+/..................../.........../ = /Tudo que está aqui dentro é a pesquisa/tudo que está aqui é a substituição/
+(.*:...*)[^*]
+() = cria grupo
+. = qualquer caractere
+* = repetição de 0 ou N vezes
+*? =  repetição de 0 ou N vezes pegando o mínimo possível = lazy quantifier
+: = literal
+...* = dois caracteres seguido de 0 até N caracteres
+
+\1 = ponteiro para grupo criado na pesquisa.
+* = * na parte de substituição é tratado como um asterisco literal
+
+ta = é como um "go to label 'a'."
+
+
+Fonte: Lista brasileira de shell script.
+
+
+ = = = = = = = = = =
+ = = = = = = = = = =
+
+
+Incluído: sábado, 26 de dezembro de 2020.
+
+Incluir uma quebra de linha
+
+sed 's/ /\n/'
+
+
+ = = = = = = = = = =
+ = = = = = = = = = =
+
+
+Incluído em: sábado, 27 de abril de 2024.
+
+
+Saída gerada pelo comando <cat /sources/valgrind-3.21.0/drd/tests/pth_cond_destroy_busy.vgtest>:
+
+prereq: ./supported_libpthread && ! ../../tests/libc_test glibc 2.24.90
+prog: pth_cond_destroy_busy
+
+
+Saída gerada pelo comando <cat /sources/valgrind-3.21.0/helgrind/tests/pth_cond_destroy_busy.vgtest>:
+
+prereq: ! ../../tests/os_test darwin && ! ../../tests/libc_test glibc 2.24.90
+prog: ../../drd/tests/pth_cond_destroy_busy
+
+
+Saída gerada pelo comando <sed -e 's@prereq:.*@prereq: false@' {helgrind,drd}/tests/pth_cond_destroy_busy.vgtest>:
+
+prereq: false
+prog: ../../drd/tests/pth_cond_destroy_busy
+prereq: false
+prog: pth_cond_destroy_busy
+
+
+Observação um: onde existia 'prereq: ...', o comando substituiu por 'prereq: false'.
+
+
+ = = = = = = = = = =
+ = = = = = = = = = =
+
+Incluído em: domingo, 04 de agosto de 2024.
+
+
+Exemplo de Comando para Remover Espaços em Branco com o sed:
+
+sed 's/[[:space:]]*$//' arquivo.txt > arquivo_sem_espacos.txt
+
+Fonte: Corrigir Justificação no Nano. Brasil: Gemini, 2024. Disponível em
+<https://gemini.google.com/app/234f70a32beb43fd>. Acesso em: 04 ago. 2024.
+
+
+ = = = = = = = = = =
+ = = = = = = = = = =
+
+
+Incluído em: sexta-feira, 07 de fevereiro de 2025.
+
+
+find . -type f -name '*.html' -exec sed -i 's/Contribua/Contribuir/g' {} \;
+
+Observação: sete (07) arquivos foram impactados por esse comando.
+
+
+ = = = = = = = = = =
+ = = = = = = = = = =
+
+
+Incluído em: sexta-feira, 28 de fevereiro de 2025.
+
+find . -type f -name '*xml' -exec sed --regexp-extended --in-place '1s/ISO-8859-1/UTF-8/g' {} \;
+
+Observação: substitui (s) todas (g) as ocorrências somente na primeira linha de cada arquivo XML.
+
+
+find . -type f -name '*xml' -exec sed --regexp-extended --in-place '2s/ISO-8859-1/UTF-8/g' {} \;
+
+Observação: substitui (s) todas (g) as ocorrências somente na segunda linha de cada arquivo XML.
+
+
+find . -type f -name '*xml' -exec sed --regexp-extended --in-place '1s/ISO-8859-1/UTF-8/' {} \;
+
+Observação: substitui (s) somente a primeira ocorrência e somente na primeira linha de cada arquivo XML.
+ 
+
+ = = = = = = = = = =
+ = = = = = = = = = =
+
+
+
